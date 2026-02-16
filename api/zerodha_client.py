@@ -2,7 +2,7 @@
 from kiteconnect import KiteConnect
 from sqlalchemy.orm import Session
 # Import functions from your database file
-from app.database.database import save_token_to_db, get_latest_token
+from database.database import save_token_to_db, get_latest_token
 import os
 from dotenv import load_dotenv
 
@@ -71,4 +71,5 @@ class Zerodha_Client():
             except Exception as e:
                 print(f"Error fetching positions: {e}")
                 return {}
+
         return {}
