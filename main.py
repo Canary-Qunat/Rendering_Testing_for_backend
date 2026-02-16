@@ -1,9 +1,9 @@
 from fastapi import FastAPI, Request, Depends, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
-from app.database.database import get_db, init_db
+from database.database import get_db, init_db
 from fastapi.templating import Jinja2Templates
-from app.api.zerodha_client import Zerodha_Client
+from api.zerodha_client import Zerodha_Client
 from fastapi.responses import RedirectResponse
 from contextlib import asynccontextmanager
 
@@ -307,4 +307,5 @@ def dashboard(request: Request, db: Session = Depends(get_db)):
         "holdings": holdings,
         "positions": net_positions,
         "summary": portfolio_summary
+
     })
