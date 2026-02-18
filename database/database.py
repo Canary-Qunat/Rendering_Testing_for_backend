@@ -25,6 +25,9 @@ def get_db():
         db.close()
 
 def save_token_to_db(access_token: str, db: Session):
+    # Delete ALL old tokens before saving new one (Single user sys)
+    db.query(Token).delete()
+    db.commit()
     """
     Saves a token and calculates expiration to be exactly 6:00 AM 
     on the day following the current timestamp.
@@ -112,4 +115,5 @@ def get_token_info(db: Session):
         "expired_at": token.expired_at.isoformat(),
         "time_remaining": str(time_remaining) if is_valid else "Expired",
         "token_preview": token.access_token[:10] + "..."
+
     }
