@@ -116,7 +116,9 @@ def kite_callback(request_token: str, status: str = "success", db: Session = Dep
             return RedirectResponse(url=f"{FRONTEND_URL}?auth=error")
 
     except Exception as e:
+        import traceback
         print(f" Callback error: {e}")
+        print(traceback.format_exc()) # full stack traces in render log
         return RedirectResponse(url=f"{FRONTEND_URL}?auth=error&message={str(e)}")
 
 
@@ -309,3 +311,4 @@ def dashboard(request: Request, db: Session = Depends(get_db)):
         "summary": portfolio_summary
 
     })
+
