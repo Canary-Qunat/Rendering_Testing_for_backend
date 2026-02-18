@@ -16,7 +16,7 @@ async def lifespan(app: FastAPI):
     print("Shutting down")
 
 
-FRONTEND_URL = "http://localhost:3000"
+FRONTEND_URL = "https://canary-qunat.github.io/Rendering_Testing_for_frontend/"
 
 app = FastAPI(lifespan=lifespan)
 
@@ -311,4 +311,5 @@ def dashboard(request: Request, db: Session = Depends(get_db)):
         "summary": portfolio_summary
 
     })
+
 
