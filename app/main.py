@@ -1,13 +1,14 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
+
 def create_app() -> FastAPI:
-    app = FastAPI(
+    application = FastAPI(
         title="Canary Backend",
         version="1.0.0"
     )
 
-    app.add_middleware(
+    application.add_middleware(
         CORSMiddleware,
         allow_origins=["http://localhost:3000"],
         allow_credentials=True,
@@ -15,6 +16,7 @@ def create_app() -> FastAPI:
         allow_headers=["*"],
     )
 
-    return app
+    return application
+
 
 app = create_app()

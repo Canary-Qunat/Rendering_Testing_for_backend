@@ -12,7 +12,9 @@ dependencies = [
     "psycopg2-binary (>=2.9)",
     "python-dotenv (>=1.0)",
     "kiteconnect (>=4.2)",
-    "requests (>=2.31)"
+    "requests (>=2.31)",
+    "passlib[argon2] (>=1.7.4,<2.0.0)",
+    "pyjwt (>=2.11.0,<3.0.0)"
 ]
 
 
