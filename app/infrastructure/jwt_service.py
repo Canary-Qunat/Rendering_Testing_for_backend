@@ -1,6 +1,8 @@
 import jwt
+from jwt import ExpiredSignatureError, InvalidTokenError
 from datetime import datetime, timezone, timedelta
 from app.infrastructure.settings import settings
+
 
 class JWTService:
 
@@ -23,3 +25,18 @@ class JWTService:
             self.secret_key,
             algorithm=self.algorithm,
         )
+
+    def verify_access_token(self, token: str) -> dict:
+        try:
+            payload = jwt.decode(
+                token,
+                self.secret_key,
+                algorithms=[self.algorithm],
+            )
+            return payload
+
+        except ExpiredSignatureError:
+            raise ValueError("Token expired")
+
+        except InvalidTokenError:
+            raise ValueError("Invalid token")
