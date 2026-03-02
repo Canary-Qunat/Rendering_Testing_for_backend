@@ -27,3 +27,13 @@ dev = [
     "pytest-asyncio (>=1.3.0,<2.0.0)",
     "httpx (>=0.28.1,<0.29.0)"
 ]
+
+[tool.poetry]
+name = "rendering-testing-for-backend"
+version = "0.1.0"
+description = ""
+authors = ["Maximo"]
+
+packages = [
+    { include = "app" }
+]

@@ -3,7 +3,6 @@ from app.infrastructure.settings import settings
 
 db_pool: asyncpg.Pool | None = None
 
-
 async def connect_to_db() -> None:
     global db_pool
 

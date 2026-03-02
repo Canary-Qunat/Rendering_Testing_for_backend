@@ -7,6 +7,8 @@ from app.infrastructure.database.connection import (
     close_db_connection,
 )
 
+from app.presentation.api.auth_router import router as auth_router
+
 @asynccontextmanager
 async def lifespan(application: FastAPI):
     # Startup
@@ -16,11 +18,11 @@ async def lifespan(application: FastAPI):
     await close_db_connection()
 
 
-def create_app() -> FastAPI:
+def create_app(use_lifespan: bool = True) -> FastAPI:
     application = FastAPI(
         title="Canary Backend",
         version="1.0.0",
-        lifespan=lifespan,
+        lifespan=lifespan if use_lifespan else None,
     )
 
     application.add_middleware(
@@ -30,6 +32,8 @@ def create_app() -> FastAPI:
         allow_methods=["*"],
         allow_headers=["*"],
     )
+
+    application.include_router(auth_router)
 
     return application
 
