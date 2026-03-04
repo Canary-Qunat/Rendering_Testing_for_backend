@@ -20,7 +20,7 @@ async def test_full_auth_flow(client):
     access_token = body["access_token"]
 
     response = await client.get(
-        "/users/me",
+        "/auth/me",
         headers={"Authorization": f"Bearer {access_token}"}
     )
 
