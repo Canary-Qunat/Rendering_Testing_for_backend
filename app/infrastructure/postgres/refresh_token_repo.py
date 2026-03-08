@@ -1,7 +1,7 @@
 from uuid import UUID
 from typing import List
 from app.domain.entities.refresh_token import RefreshToken
-from app.domain.interfaces.refresh_token_repo import RefreshTokenRepository
+from app.domain.repositories.refresh_token_repo import RefreshTokenRepository
 
 
 class PostgresRefreshTokenRepository(RefreshTokenRepository):

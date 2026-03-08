@@ -2,7 +2,7 @@ from uuid import UUID
 from typing import Optional
 
 from app.domain.entities.user import User
-from app.domain.interfaces.user_repo import UserRepository
+from app.domain.repositories.user_repo import UserRepository
 
 
 class PostgresUserRepository(UserRepository):

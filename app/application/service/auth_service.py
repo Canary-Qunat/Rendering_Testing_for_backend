@@ -4,8 +4,8 @@ from uuid import uuid4, UUID
 
 from app.domain.entities.user import User
 from app.domain.entities.refresh_token import RefreshToken
-from app.domain.interfaces.user_repo import UserRepository
-from app.domain.interfaces.refresh_token_repo import RefreshTokenRepository
+from app.domain.repositories.user_repo import UserRepository
+from app.domain.repositories.refresh_token_repo import RefreshTokenRepository
 from app.infrastructure.security import PasswordHasher, TokenGenerator
 from app.infrastructure.jwt_service import JWTService
 from app.infrastructure.settings import settings
