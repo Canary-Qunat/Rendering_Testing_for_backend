@@ -6,7 +6,7 @@ from app.domain.interfaces.refresh_token_repo import RefreshTokenRepository
 
 class PostgresRefreshTokenRepository(RefreshTokenRepository):
 
-    def __init__(self, db):
+    def __init__(self, db): # dependency injection
         self.db = db
 
     async def save(self, refresh_token: RefreshToken) -> None:

@@ -7,7 +7,7 @@ from decimal import Decimal
 class Positions:
     id : UUID
     user_id : UUID
-    tradingsymbol : str
+    trading_symbol : str
     exchange : str
     quantity : int
     avg_price : Decimal
