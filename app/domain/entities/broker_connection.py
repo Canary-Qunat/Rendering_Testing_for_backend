@@ -1,6 +1,7 @@
 from datetime import datetime
 from uuid import UUID
 from enum import Enum
+from dataclasses import dataclass
 
 
 class ConnectionStatus(Enum):
@@ -8,7 +9,7 @@ class ConnectionStatus(Enum):
     DISCONNECTED = "disconnected"
     EXPIRED = "expired"
 
-
+@dataclass
 class BrokerConnection:
     id: UUID
     user_id: UUID
