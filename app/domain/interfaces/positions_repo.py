@@ -19,3 +19,7 @@ class PositionRespository(ABC):
     @abstractmethod
     async def update(self, position:Positions) -> Positions:
         raise NotImplementedError
+    
+    @abstractmethod
+    async def delete(self, position_id:UUID) -> None:
+        raise NotImplementedError
