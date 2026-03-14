@@ -2,12 +2,16 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
 
+
+
 from app.infrastructure.database.connection import (
     connect_to_db,
     close_db_connection,
 )
 
 from app.presentation.api.auth_router import router as auth_router
+from app.presentation.api.position_routes import router as position_router
+
 
 @asynccontextmanager
 async def lifespan(application: FastAPI):
@@ -34,7 +38,8 @@ def create_app(use_lifespan: bool = True) -> FastAPI:
     )
 
     application.include_router(auth_router)
-
+    application.include_router(position_router)
+    
     return application
 
 

@@ -8,7 +8,7 @@ class PostgresRefreshTokenRepository(RefreshTokenRepository):
 
     def __init__(self, db): # dependency injection
         self.db = db
-
+ 
     async def save(self, refresh_token: RefreshToken) -> None:
         query = """
             INSERT INTO refresh_tokens (
