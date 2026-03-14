@@ -1,6 +1,6 @@
 import asyncpg
 from app.infrastructure.settings import settings
-from contextlib import asyncontextmanager
+from contextlib import asynccontextmanager
 
 db_pool: asyncpg.Pool | None = None
 

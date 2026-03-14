@@ -5,7 +5,7 @@ from app.infrastructure.security import PasswordHasher, TokenGenerator
 from app.infrastructure.jwt_service import JWTService
 from app.infrastructure.database import connection
 from app.application.service.position_service import PositionService
-from app.infrastructure.postgres.position_repo import PositionRespository
+from app.infrastructure.postgres.position_repo import PostgresPositionRepository
 
 def get_auth_service() -> AuthService:
     user_repo = PostgresUserRepository(connection.db_pool)
@@ -24,5 +24,5 @@ def get_auth_service() -> AuthService:
     )
 
 def get_position_service() -> PositionService:
-    position_Repo = PositionRespository(connection.db_pool)
+    position_Repo = PostgresPositionRepository(connection.db_pool)
     return PositionService(position_repo=position_Repo)

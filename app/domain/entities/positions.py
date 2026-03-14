@@ -17,8 +17,8 @@ class Positions:
     product : str
     synced_at : datetime
 
-def update_market(self, last_price, pnl, pnl_percent) -> None:
-    self.last_price = last_price
-    self.pnl = pnl
-    self.pnl_percent = pnl_percent
-    self.synced_at = datetime.now()
+    def update_market(self, last_price, pnl, pnl_percent) -> None:
+        self.last_price = last_price
+        self.pnl = pnl
+        self.pnl_percent = pnl_percent
+        self.synced_at = datetime.now()

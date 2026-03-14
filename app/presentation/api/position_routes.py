@@ -20,7 +20,7 @@ async def list_positions(
 ):
     return await position_service.get_user_position(current_user.id)
 
-@router.get("/{psition_id}", response_model=PositionResponse)
+@router.get("/{position_id}", response_model=PositionResponse)
 async def get_position(
     position_id: UUID,
     current_user: User = Depends(get_current_user),

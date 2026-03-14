@@ -8,8 +8,11 @@ from app.infrastructure.database.connection import get_connection
 
 class PostgresPositionRepository(PositionRespository):
 
+    def __init__(self, db_pool):
+        self.db_pool = db_pool
+
     async def get_by_id(self, position_id: UUID) -> Positions | None:
-        async with get_connection() as conn:
+        async with self.db_pool.acquire() as conn:
             row = await conn.fetchrow(
                 "SELECT * FROM positions WHERE id = $1",
                 position_id,
@@ -25,7 +28,7 @@ class PostgresPositionRepository(PositionRespository):
                 "SELECT * FROM positions WHERE user_id = $1",
                 user_id,
             )
-            return [self._to_enity(row) for row in rows]
+            return [self._to_entity(row) for row in rows]
 
 
     async def save(self, position: Positions) -> Positions:

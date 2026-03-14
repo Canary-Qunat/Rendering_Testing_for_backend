@@ -28,5 +28,5 @@ class PositionResponse(BaseModel):
     synced_at : datetime
 
     class Config:
-        from_attribute = True
+        from_attributes = True
         
